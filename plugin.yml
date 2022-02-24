@@ -1,0 +1,9 @@
+name: Afk
+version: 1.0.0
+main: NewTheBuilder\Afk\Main
+api: 4.0.0
+author: NewTheBuilder
+permissions:
+  afk.command.use:
+    default: op
+    description: "Allow accès at the /afk command"

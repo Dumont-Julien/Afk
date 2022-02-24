@@ -1,0 +1,14 @@
+#
+#   _____  _______________  __. __________.__               .__
+#  /  _  \ \_   _____/    |/ _| \______   \  |  __ __  ____ |__| ____
+# /  /_\  \ |    __) |      <    |     ___/  | |  |  \/ ___\|  |/    \
+#/    |    \|     \  |    |  \   |    |   |  |_|  |  / /_/  >  |   |  \
+#\____|__  /\___  /  |____|__ \  |____|   |____/____/\___  /|__|___|  /
+#        \/     \/           \/                     /_____/         \/
+#
+
+Console_Command: "§cUse this command in-game"
+NoPermission: "§cYou don't ave permission to use that"
+
+Afk_Message_1: "&9{PLAYER} §fis now AFK !"
+Afk_Message_2: "§9{PLAYER} §fis no logger AFK !"
