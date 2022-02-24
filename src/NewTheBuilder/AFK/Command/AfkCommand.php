@@ -30,8 +30,8 @@ class AfkCommand extends Command {
             $sender->sendMessage($config->get("NoPermission"));
             return true;
         }
-        if (isset($afk[$sender->getName()])) {
-            unset($afk[$sender->getName()]);
+        if (isset(self::$afk[$sender->getName()])) {
+            unset(self::$afk[$sender->getName()]);
             Server::getInstance()->broadcastMessage($config->get("Afk_Message_2"));
         }else{
             self::$afk[$sender->getName()] = $sender->getName();
