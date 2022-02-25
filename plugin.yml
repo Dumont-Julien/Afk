@@ -1,5 +1,5 @@
 name: Afk
-version: 1.0.0
+version: 2.0.0
 main: NewTheBuilder\AFK\Main
 api: 4.0.0
 author: NewTheBuilder
