@@ -7,3 +7,6 @@ permissions:
   afk.command.use:
     default: op
     description: "Allow accès at the /afk command"
+  afk.bypass:
+    default: op
+    description: "ByPass AFK mode."

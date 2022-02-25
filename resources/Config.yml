@@ -9,6 +9,17 @@
 
 Console_Command: "§cUse this command in-game"
 NoPermission: "§cYou don't ave permission to use that"
+Player_Not_Found: "§cPlayer not found"
+Player_ByPass_AFK: "§cYou cannot make afk this player"
 
-Afk_Message_1: "&9{PLAYER} §fis now AFK !"
+#Auto Afk kick
+#Auto = Enable.
+Afk_Status: "enable"
+#default is 5 minutes.
+Afk_time: 300
+First_Warning_AFK: "If you don't move you will be kicked out in 1 minute"
+Kick_Reason: "you have been kicked from the server for afk"
+
+#AFk Command message
+Afk_Message_1: "§9{PLAYER} §fis now AFK !"
 Afk_Message_2: "§9{PLAYER} §fis no logger AFK !"

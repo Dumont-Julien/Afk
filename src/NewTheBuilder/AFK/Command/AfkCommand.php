@@ -30,14 +30,38 @@ class AfkCommand extends Command {
             $sender->sendMessage($config->get("NoPermission"));
             return true;
         }
-        if (isset(self::$afk[$sender->getName()])) {
-            unset(self::$afk[$sender->getName()]);
-            Server::getInstance()->broadcastMessage($config->get("Afk_Message_2"));
+        if (!isset($args[0])){
+            $this->extracted($sender, $config);
         }else{
-            self::$afk[$sender->getName()] = $sender->getName();
-            Server::getInstance()->broadcastMessage("Afk_Message_1");
+            $player = Main::getInstance()->getServer()->getPlayerByPrefix($args[0]);
+            if (!$player instanceof Player) {
+                $sender->sendMessage($config->get("Player_Not_Found"));
+                return true;
+            }
+            if ($player->hasPermission("afk.bypass")){
+                $sender->sendMessage($config->get("Player_ByPass_AFK"));
+                return true;
+            }
+            $this->extracted($player, $config);
         }
         return true;
     }
 
+    /**
+     * @param Player|CommandSender $sender
+     * @param Config $config
+     * @return void
+     */
+    public function extracted(Player|CommandSender $sender, Config $config): void
+    {
+        if (isset(self::$afk[$sender->getName()])) {
+            unset(self::$afk[$sender->getName()]);
+            Server::getInstance()->broadcastMessage(str_replace("{PLAYER}", $sender->getName(), $config->get("Afk_Message_2")));
+            $sender->setNameTag($sender->getNameTag());
+        } else {
+            self::$afk[$sender->getName()] = $sender->getName();
+            Server::getInstance()->broadcastMessage(str_replace("{PLAYER}", $sender->getName(), $config->get("Afk_Message_1")));
+            $sender->setNameTag("[§9AFK§f]\n" . $sender->getName());
+        }
+    }
 }
